@@ -27,8 +27,14 @@ private:
     std::vector<Deposit> deposits;
     std::vector<Loan> loans;
     
-    double generateInterestRateCREDIT();
-    double generateInterestRateDEPOSIT();
+    double generateInterestRateCREDIT()
+    {
+        return 0.5 + static_cast<double>(rand()) / RAND_MAX * (1-0.5);
+    }
+    double generateInterestRateDEPOSIT()
+    {
+        return 0.1 + static_cast<double>(rand()) / RAND_MAX * (0.7-0.1);
+    }
 
 public:
     CasinoBank(double initial_funds);
