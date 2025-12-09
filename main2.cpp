@@ -68,7 +68,7 @@ public:
 bool readInputData(double& depositAmount, double& loanAmount){
     std::ifstream inputFile("input.txt");
     if (!inputFile) {
-        std::cerr << "Ошибка открытия входного файла!" << std::endl;
+        std::cerr << "oshibka otkritiya faila!" << std::endl;
         return false;
     }
 
@@ -82,7 +82,7 @@ bool readInputData(double& depositAmount, double& loanAmount){
 void writeResults(CasinoBank& bank, double depositAmount, double loanAmount) {
     std::ofstream outputFile("output.txt");
     if (!outputFile) {
-        std::cerr << "Ошибка открытия выходного файла!" << std::endl;
+        std::cerr << "oshibka output.txt!" << std::endl;
         return;
     }
 
@@ -116,7 +116,7 @@ int main() {
         return 1;
     }
 
-    CasinoBank bank(9999999999999); // начальный капитал банка
+    CasinoBank bank(999999999); // начальный капитал банка
 
     // Запись результатов работы
     writeResults(bank, depositAmount, loanAmount);
