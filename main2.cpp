@@ -64,7 +64,6 @@ void processData() {
 }
 
 int main() {
-    setlocale(LC_ALL, "Russian");
     // TODO: вызвать функцию processData
     return 0;
 }
