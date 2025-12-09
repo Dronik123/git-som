@@ -39,21 +39,48 @@ public:
 };
 
 // Функция для чтения данных из файла
-bool readInputData(double& depositAmount, double& loanAmount) {
-    // TODO: реализовать чтение данных из файла input.txt
-    // Первое число - сумма вклада, второе - сумма кредита
-    // Возвращает true при успешном чтении, false при ошибке
-    return false;
+bool readInputData(double& depositAmount, double& loanAmount){
+    std::ifstream inputFile("input.txt");
+    if (!inputFile) {
+        std::cerr << "Ошибка открытия входного файла!" << std::endl;
+        return false;
+    }
+
+    inputFile >> depositAmount >> loanAmount;
+    inputFile.close();
+
+    return true;
 }
 
 // Функция для записи результатов работы
 void writeResults(CasinoBank& bank, double depositAmount, double loanAmount) {
-    // TODO: открыть файл output.txt для записи
-    // TODO: обработать вклад (если depositAmount > 0)
-    // TODO: обработать кредит (если loanAmount > 0)
-    // TODO: вывести итоговый капитал банка
-    // TODO: закрыть файл
+    std::ofstream outputFile("output.txt");
+    if (!outputFile) {
+        std::cerr << "Ошибка открытия выходного файла!" << std::endl;
+        return;
+    }
+
+    // Обработка вклада
+    if (depositAmount > 0) {
+        bank.makeDeposit(depositAmount, outputFile);
+    }
+    else {
+        outputFile << "Некорректная сумма вклада.\n";
+    }
+
+    // Обработка кредита
+    if (loanAmount > 0) {
+        bank.giveLoan(loanAmount, outputFile);
+    }
+    else {
+        outputFile << "Некорректная сумма кредита.\n";
+    }
+
+    // Отображение итогового капитала банка
+    bank.showFunds(outputFile);
+    outputFile.close();
 }
+
 
 // Функция для обработки данных
 void processData() {
