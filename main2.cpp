@@ -10,14 +10,14 @@ class Deposit {
 public:
     double amount;
     double interest_rate;
-    Deposit(double amt, double rate);
+    Deposit(double amt, double rate):amount(amt), interest_rate(rate){};
 };
 
 class Loan {
 public:
     double amount;
     double interest_rate;
-    Loan(double amt, double rate);
+    Loan(double amt, double rate):amount(amt), interest_rate(rate){};
 };
 
 // Класс CasinoBank
