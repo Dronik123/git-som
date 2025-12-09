@@ -82,15 +82,18 @@ void writeResults(CasinoBank& bank, double depositAmount, double loanAmount) {
 }
 
 
-// Функция для обработки данных
-void processData() {
-    // TODO: объявить переменные для сумм вклада и кредита
-    // TODO: вызвать readInputData для получения данных
-    // TODO: создать объект CasinoBank с начальным капиталом
-    // TODO: вызвать writeResults для обработки и записи результатов
-}
-
 int main() {
-    // TODO: вызвать функцию processData
+    double depositAmount = 0, loanAmount = 0;
+
+    // Чтение данных из входного файла
+    if (!readInputData(depositAmount, loanAmount)) {
+        return 1;
+    }
+
+    CasinoBank bank(9999999999999); // начальный капитал банка
+
+    // Запись результатов работы
+    writeResults(bank, depositAmount, loanAmount);
+
     return 0;
 }
