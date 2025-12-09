@@ -1,0 +1,5 @@
+build/
+.vscode/
+CMakeLists.txt
+.vscode/
+main2.exe
